@@ -1,16 +1,17 @@
 <template>
   <div class="footer">
-     footer {{count}}
+     footer {{count}} {{bookName}}
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import Bus from '../bus'
 export default {
   name: 'common-footer',
   data() {
     return {
-      
+      bookName: '呵呵'
     }
   },
   computed: {
@@ -18,6 +19,13 @@ export default {
     //   return this.$store.state.count
     // },
     ...mapState(['count'])
+  },
+  created() {
+
+    Bus.$on('getBookName', function(name) {
+      console.log(111, name, this);
+      this.bookName = name;
+    });
   }
 }
 </script>

@@ -5,7 +5,7 @@
         <img :src="img" alt="">
       </div>
       <div class="book-list-desc">
-          <p class="book-list-name">{{ title }}</p>
+          <p class="book-list-name" @click="getName(title)">{{ title }}</p>
           <router-link to="/chart"  class="chart">
             <p class="book-list-num">推荐指数：{{ num }}</p>
           </router-link>
@@ -16,9 +16,15 @@
 
 <script>
 
+import Bus from '../bus'
 export default {
   name: 'list',
-  props: ['num', 'title', 'img', 'id']
+  props: ['num', 'title', 'img', 'id'],
+  methods: {
+    getName(text) {
+      Bus.$emit('getBookName', text);
+    }
+  }
 }
 </script>
 

@@ -72,6 +72,12 @@ export default {
       }
     }
   },
+  computed: {
+    
+  },
+  created() {
+     
+  },
   mounted() {
     var bar = echarts.init(document.querySelector('#chart-cont'));
     bar.setOption(this.barOption);
