@@ -13,6 +13,10 @@
             <li>书名: {{currentData.title}}</li>
             <li>豆瓣评分: {{currentData.douban}}</li>
             <li>推荐指数: {{currentData.num}}</li>
+            <li class="rate-content">
+              <el-rate v-model="rateVal" @change="getRateVal(rateVal)"></el-rate>
+            </li>
+            <test-bus></test-bus>
           </ul>
         </el-col>
       </el-row>
@@ -31,18 +35,27 @@
 <script>
 import CommonHeader from '../components/CommonHeader'
 import CommonFooter from '../components/CommonFooter'
+import TestBus from '../components/TestBus'
+import Bus from '../bus'
 export default {
   name: 'detail',
   components: {
     CommonHeader,
-    CommonFooter
+    CommonFooter,
+    TestBus
   },
   data() {
     return {
       showBackBtn: true,
       bookInfo: [],
       currentId: 0,
-      currentData: {}
+      currentData: {},
+      rateVal: null
+    }
+  },
+  methods: {
+    getRateVal(val) {
+      Bus.$emit('getRateVal', val);
     }
   },
   created() {
@@ -114,6 +127,9 @@ export default {
   li {
     height: 30px;
     line-height: 30px;
+  }
+  .rate-content {
+    margin: 4px 0 -8px 0;
   }
 }
 </style>

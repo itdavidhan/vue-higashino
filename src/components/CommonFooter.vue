@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-     footer {{count}} {{bookName}}
+     copyright©{{count}} by DavidHan
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   name: 'common-footer',
   data() {
     return {
-      bookName: '呵呵'
+       
     }
   },
   computed: {
@@ -22,10 +22,6 @@ export default {
   },
   created() {
 
-    Bus.$on('getBookName', function(name) {
-      console.log(111, name, this);
-      this.bookName = name;
-    });
   }
 }
 </script>
