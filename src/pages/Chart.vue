@@ -5,7 +5,8 @@
     </el-header>
     <el-main>
       <div id="chart-cont" class="chart"></div>
-      <p>{{getFilter}}</p>
+      <p>不传参： {{getFilter1}}</p>
+      <p>传参： {{getArr}}</p>
     </el-main>
     <el-footer>
       <common-footer></common-footer>
@@ -75,10 +76,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getFilter'])
+    ...mapGetters(['getFilter1', 'getFilter2']),
+    getArr() {
+      return this.getFilter2(2);
+    }
   },
   created() {
-     
   },
   mounted() {
     var bar = echarts.init(document.querySelector('#chart-cont'));
