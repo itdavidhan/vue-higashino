@@ -5,6 +5,7 @@
     </el-header>
     <el-main>
       <div id="chart-cont" class="chart"></div>
+      <p>{{getFilter}}</p>
     </el-main>
     <el-footer>
       <common-footer></common-footer>
@@ -17,6 +18,7 @@
 import echarts from 'echarts'
 import CommonHeader from '../components/CommonHeader'
 import CommonFooter from '../components/CommonFooter'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'chart',
@@ -73,7 +75,7 @@ export default {
     }
   },
   computed: {
-    
+    ...mapGetters(['getFilter'])
   },
   created() {
      
