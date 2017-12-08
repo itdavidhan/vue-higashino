@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-     copyright©{{count}} by DavidHan
+     <span>copyright©{{count}} by DavidHan</span>
   </div>
 </template>
 
@@ -26,13 +26,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .footer {
   position: fixed;
+  text-align: center;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 60px;
+  line-height: 60px;
   background-color: #000;
   color: #FFF;
   z-index: 100;
